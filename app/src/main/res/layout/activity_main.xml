@@ -22,8 +22,9 @@
 
         <TextView
             android:id="@+id/tvScore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            />
     </LinearLayout>
 
     <com.example.yeye.game2048.GameView

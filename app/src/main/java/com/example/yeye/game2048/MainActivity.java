@@ -35,13 +35,17 @@ public class MainActivity extends Activity {
     }
 
     public void showScore() {
-        tvScore.setText("" + score);
+        String s = String.valueOf(score);
+        tvScore.setText(s);
+        System.out.println(score);
+        return ;
     }
 
     public void addScore(int s) {
         score += s;
         showScore();
     }
+
 
     private int score = 0;
     private TextView tvScore;

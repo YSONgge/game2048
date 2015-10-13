@@ -80,7 +80,7 @@ public class GameView extends GridLayout {
     产生card
      */
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        // super.onSizeChanged(w, h, oldw, oldh);
+         super.onSizeChanged(w, h, oldw, oldh);
         // System.out.println(w);   System.out.println(h);
         /*
        真机出现问题待解决，htc T328w
@@ -175,7 +175,7 @@ public class GameView extends GridLayout {
                             cardsMap[x][y].setNum(cardsMap[x][y].getNum() * 2);
                             cardsMap[x1][y].setNum(0);
                             MainActivity.getMainActivity().addScore(cardsMap[x][y].getNum());
-
+                            System.out.println();
                             marge = true;
                         }
                         break;
