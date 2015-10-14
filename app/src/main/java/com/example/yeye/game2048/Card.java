@@ -19,7 +19,7 @@ public class Card extends FrameLayout {
         label.setBackgroundColor(0x33ffffff);
 
         LayoutParams lp = new LayoutParams(-1, -1);
-        lp.setMargins(10, 10, 0, 0);//ÉèÖÃ¿¨Æ¬¼äµÄ¿Õ
+        lp.setMargins(10, 10, 0, 0);//è®¾ç½®å¡ç‰‡é—´çš„ç©º
         addView(label, lp);
 
         setNum(0);

@@ -23,8 +23,7 @@
         <TextView
             android:id="@+id/tvScore"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <com.example.yeye.game2048.GameView
@@ -32,4 +31,23 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"></com.example.yeye.game2048.GameView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/reButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="restart" />
+
+        <Button
+            android:id="@+id/pause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pause" />
+
+    </LinearLayout>
 </LinearLayout>

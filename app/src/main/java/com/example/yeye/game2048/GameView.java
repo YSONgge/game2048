@@ -79,20 +79,28 @@ public class GameView extends GridLayout {
     /*
     产生card
      */
+
+
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-         super.onSizeChanged(w, h, oldw, oldh);
+
+        super.onSizeChanged(w, h, oldw, oldh);
         // System.out.println(w);   System.out.println(h);
         /*
        真机出现问题待解决，htc T328w
          */
-        int cardWidth = (Math.max(w, h) - 10) / 4;
+        if (i == 0) {
+            int cardWidth = (Math.max(w, h) - 10) / 4;
 //        System.out.println(cardWidth);
 //        System.out.println("kuan" + w);
-        // addCard(cardWidth, cardWidth);
-        addCard(110, 110);
-        startGame();
-        System.out.println("************************" + i);
-        i++;
+            // addCard(cardWidth, cardWidth);
+            addCard(110, 110);
+            startGame();
+
+            i++;
+        }
+
+//        System.out.println("************************" + i);
+
     }
 
     /*
@@ -110,9 +118,12 @@ public class GameView extends GridLayout {
         }
     }
 
-    private void startGame() {
+    public static void startGame() {
+
 
         MainActivity.getMainActivity().clearScore();
+        System.out.println(" " + MainActivity.getMainActivity().getScore());
+
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
                 cardsMap[x][y].setNum(0);
@@ -121,18 +132,19 @@ public class GameView extends GridLayout {
         addRandomNum();
         addRandomNum();
 
+
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
                 System.out.print(cardsMap[x][y].getNum() + "--");
-
             }
             System.out.println();
-
         }
-
     }
 
-    private void addRandomNum() {
+
+    private static void addRandomNum() {
+
+
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
                 if (cardsMap[x][y].getNum() <= 0) {
@@ -166,7 +178,7 @@ public class GameView extends GridLayout {
 
                         if (cardsMap[x][y].getNum() <= 0) {
                             cardsMap[x][y].setNum(cardsMap[x1][y].getNum());
-                            System.out.println("[" + x + "][" + y + "]" + cardsMap[x][y].getNum());
+                            //  System.out.println("[" + x + "][" + y + "]" + cardsMap[x][y].getNum());
                             cardsMap[x1][y].setNum(0);
                             x--;
 
@@ -225,7 +237,7 @@ public class GameView extends GridLayout {
 
                         if (cardsMap[x][y].getNum() <= 0) {
                             cardsMap[x][y].setNum(cardsMap[x1][y].getNum());
-                            System.out.println("[" + x + "][" + y + "]" + cardsMap[x][y].getNum());
+                            //  System.out.println("[" + x + "][" + y + "]" + cardsMap[x][y].getNum());
                             cardsMap[x1][y].setNum(0);
                             x++;
 
@@ -280,7 +292,7 @@ public class GameView extends GridLayout {
 
                         if (cardsMap[x][y].getNum() <= 0) {
                             cardsMap[x][y].setNum(cardsMap[x][y1].getNum());
-                            System.out.println("[" + x + "][" + y + "]" + cardsMap[x][y].getNum());
+                            //  System.out.println("[" + x + "][" + y + "]" + cardsMap[x][y].getNum());
                             cardsMap[x][y1].setNum(0);
                             y--;
 
@@ -333,7 +345,7 @@ public class GameView extends GridLayout {
 
                         if (cardsMap[x][y].getNum() <= 0) {
                             cardsMap[x][y].setNum(cardsMap[x][y1].getNum());
-                            System.out.println("[" + x + "][" + y + "]" + cardsMap[x][y].getNum());
+                            // System.out.println("[" + x + "][" + y + "]" + cardsMap[x][y].getNum());
                             cardsMap[x][y1].setNum(0);
                             y++;
 
@@ -365,11 +377,20 @@ public class GameView extends GridLayout {
 
     }
 
+    public static void reStartGame() {
+        //if (MainActivity.getMainActivity().flg == false) {
+        startGame();
+        //   MainActivity.getMainActivity().flg = true;
+        // }
+
+    }
+
     private void checkComplete() {
 
         boolean complete = true;
 
-        ALL://标签，用于跳出全部循环
+        ALL:
+//标签，用于跳出全部循环
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
                 if (cardsMap[x][y].getNum() == 0
@@ -394,6 +415,8 @@ public class GameView extends GridLayout {
         }
     }
 
-    private Card[][] cardsMap = new Card[4][4];
-    private List<Point> emptyPoints = new ArrayList<>();
+
+    private static Card[][] cardsMap = new Card[4][4];
+    private static List<Point> emptyPoints = new ArrayList<>();
+
 }
